@@ -5,8 +5,10 @@ import 'package:audioplayers/audio_cache.dart';
 myapp1() {
   mypress() {
     var audio = AudioCache();
-    audio.play('gazab.mp3');
+    audio.play('happy_birthday.mp3');
   }
+  AudioPlayer audioPlayer = AudioPlayer();
+          var a=AudioCache(fixedPlayer: audioPlayer);
 
   var verticle;
   var mybody = Container(
@@ -16,7 +18,7 @@ myapp1() {
     color: Colors.grey.shade200,
     margin: EdgeInsets.all(10),
     child: Column(
-      //alignment: Alignment.topCenter,
+
       children: <Widget>[
         Container(
           child: Text(
@@ -38,8 +40,7 @@ myapp1() {
             ),
           ),
           margin: EdgeInsets.all(50),
-          // padding: EdgeInsets.all(30),
-          // padding: EdgeInsets.only(left: 70),
+          
           alignment: Alignment.center,
           width: 350,
           height: 200,
@@ -66,7 +67,7 @@ myapp1() {
               onPressed: mypress,
               icon: Icon(Icons.play_arrow),
               label: Text('play'),
-            ) //(onPressed: mypress, child: Text('click'),),//Text('hi'),//RaisedButton.icon(onPressed: mypress, icon: Icon(Icons.email) , label: null),
+            ) 
             ),
         Container(
             decoration: BoxDecoration(
@@ -78,10 +79,10 @@ myapp1() {
             height: 50,
             //color:Colors.blue.shade400,
             child: FlatButton.icon(
-              onPressed: mypress,
+              onPressed:(){ audioPlayer.pause();},
               icon: Icon(Icons.pause),
               label: Text('pause'),
-            ) //(onPressed: mypress, child: Text('click'),),//Text('hi'),//RaisedButton.icon(onPressed: mypress, icon: Icon(Icons.email) , label: null),
+            ),
             ),
         Container(
             decoration: BoxDecoration(
@@ -91,19 +92,19 @@ myapp1() {
             margin: EdgeInsets.symmetric(vertical: 4),
             width: 100,
             height: 50,
-            //color:Colors.blue.shade400,
+
             child: FlatButton.icon(
-              onPressed: mypress,
+              onPressed: (){audioPlayer.stop();},
               icon: Icon(Icons.stop),
               label: Text('stop'),
-            ) //(onPressed: mypress, child: Text('click'),),//Text('hi'),//RaisedButton.icon(onPressed: mypress, icon: Icon(Icons.email) , label: null),
+            ) 
             ),
       ],
     ),
   );
   return MaterialApp(
     debugShowCheckedModeBanner: false,
-    // debugShowCheckedModeBanner: false,
+    
     home: Scaffold(
       appBar: AppBar(
         title: Text('Instrumental Play'),
